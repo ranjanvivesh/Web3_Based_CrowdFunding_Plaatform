@@ -1,0 +1,674 @@
+Dr. AMBEDKAR INSTITUTE OF TECHNOLOGY
+(An Autonomous Institute, Affiliated to Visvesvaraya Technological University, Belagavi, Accredited by NAAC, with 'A' Grade)
+Near Jnana Bharathi Campus, Bengaluru – 560056
+SCHOOL OF COMPUTER SCIENCE AND ENGINEERING
+INFORMATION SCIENCE & ENGINEERING PROGRAMME
+A Major Project Phase-I Report on
+"Blockchain-Based Shipment Tracking System"
+Submitted in partial fulfilment of the requirement for the award of the Degree of
+Bachelor of Engineering
+In
+Information Science & Engineering
+Submitted by
+Name Here
+For the academic year 2025-26
+Under the Guidance of
+Dr. Prerana Chaithra
+Professor, Dept. of ISE,
+Dr. AIT, Bengaluru – 56.
+Visvesvaraya Technological University
+1
+ 
+Dr. AMBEDKAR INSTITUTE OF TECHNOLOGY
+(An Autonomous Institute, Affiliated to Visvesvaraya Technological University, Belagavi, Accredited by NAAC, with 'A' Grade)
+Near Jnana Bharathi Campus, Bengaluru – 560056
+SCHOOL OF INFORMATION SCIENCE AND ENGINEERING
+INFORMATION SCIENCE & ENGINEERING PROGRAMME
+Certificate
+Certified that the Major-Project-I (22ISP605) work titled "Blockchain-Based Shipment Tracking System" carried out by ADITYA RAJ, SUBHAM GHOSH and VEDASHREE V KULKARNI bearing the USNs 1DA23IS002, 1DA23IS048 and 1DA23IS055, are bonafide students of Dr. Ambedkar Institute of Technology, Bengaluru, in partial fulfilment for the award of Degree in Bachelor of Engineering in Information Science & Engineering Programme of Dr. Ambedkar Institute of Technology during the academic year 2025-26. It is certified that all corrections/suggestions indicated during Internal Assessment have been incorporated in the Major Project Phase-I report deposited in the programme. The Major Project report has been approved as it satisfies the academic requirements in respect of Major Project work prescribed for the said Degree.
+
+-------------------------
+Signature of the Guide
+Dr. Prerana Chaithra
+Professor,
+ISE Programme,
+Dr.AIT, Bengaluru -56.	-------------------------
+Signature of the HOP
+Dr. Prabha R,
+Professor and HEAD,
+ISE Programme,
+Dr.AIT, Bengaluru – 56.	-------------------------
+Signature of the Coordinator
+Mrs. Malathi P
+Assistant Professor,
+ISE Programme,
+Dr.AIT, Bengaluru – 56.
+Viva-Voce Examination
+Name of the Examiners
+1.
+2.
+ 
+ACKNOWLEDGEMENTS
+The sense of jubilation that accompanies the successful completion of this Major Project Phase-I would be incomplete without mentioning and thanking all the people who played a vital role in the completion of this project by providing endless encouragement and support.
+We would like to thank Dr. Mahalinga V Mandi, Principal, Dr.AIT, who has always been a great source of inspiration while carrying out this Major Project Phase-I.
+We are extremely grateful to Mrs. Malathi P, Assistant Professor, ISE Programme, Dr.AIT Major Project Coordinator and Dr. Prabha R, Professor and HEAD, ISE Programme, Dr.AIT for providing us constant encouragement and permitting us to utilize the required laboratory facilities and a congenial working environment for the successful completion of this Major Project Phase-I.
+We are highly indebted to our guide Dr. Prerana Chaithra, Professor, ISE Programme, Dr.AIT for constant guidance and support, as well as for providing necessary information regarding the Major Project Phase-I.
+We would also like to thank all the teaching and non-teaching staff members of ISE Programme for their support during the course of this Major Project Phase-I implementation.
+Lastly, we would like to thank our parents and friends whose constant encouragement and support was crucial in execution and completion of this Major Project Phase-I.
+Name of students
+Name Here
+ 
+ABSTRACT
+Supply chain management plays a critical role in the global economy, enabling the seamless movement of goods from manufacturers to consumers through a network of interconnected entities. Among the most essential components of this system is shipment tracking, which ensures visibility, accountability, and timely delivery of goods. However, traditional shipment tracking systems rely on centralized architectures where all data is managed by a single authority, making them vulnerable to data manipulation, lack of transparency, and trust issues among stakeholders.
+In response to these challenges, this project presents the Blockchain-Based Shipment Tracking System, a comprehensive and secure decentralized platform designed to automate and manage the entire lifecycle of shipment tracking. The system integrates multiple advanced components, each addressing a critical aspect of supply chain transparency and data integrity. The first component is a decentralized ledger mechanism implemented through smart contracts on a blockchain network, which continuously records shipment events in an immutable and tamper-proof manner. The second component focuses on role-based access, enabling stakeholders such as manufacturers, transporters, warehouse managers, and customers to interact with the system based on their designated permissions.
+The third component introduces a centralized dashboard and API layer that allows real-time querying of shipment status, location updates, and transaction history across the supply chain. This is complemented by a smart contract-based automation model that triggers status updates, validates transactions, and enforces business rules without requiring manual intervention. Additionally, the system incorporates a comprehensive economic transparency model that logs costs, transit times, and delivery performance indicators, ensuring realistic representation of real-world supply chain operations.
+By combining decentralized data storage, smart contract automation, role-based access control, and real-time tracking capabilities, the Blockchain-Based Shipment Tracking System establishes a scalable and modular platform for secure supply chain management. The integration of these components results in a cohesive system capable of improving operational efficiency, reducing fraud risks, and enabling proactive infrastructure governance in modern logistics environments.
+ 
+TABLE OF CONTENTS
+Chapter 1: Introduction	7
+    1.1. Overview of Blockchain-Based Shipment Tracking	7
+    1.2. Problem Statement	8
+    1.3. Objectives	9
+    1.4. Organization of Major Project Phase-I Report	9
+Chapter 2: Literature Survey	10
+    2.1. Traditional Shipment Tracking Methods	10
+    2.2. Blockchain and Smart City Logistics Systems	11
+Chapter 3: Software Requirement Specification	12
+    3.1. Hardware Requirements	12
+    3.2. Software Requirements	13
+Chapter 4: System Design	14
+    4.1. Overall Architecture	14
+    4.2. Use Cases	15
+    4.3. Data Flow Diagrams	16
+    4.4. System Components and Algorithms	17
+Chapter 5: Implementation	18
+    5.1. Smart Contract Development	18
+    5.2. Backend API and Blockchain Integration	19
+    5.3. Dashboard and Real-Time Tracking	20
+Chapter 6: System Testing	21
+    6.1. Unit Testing	21
+    6.2. Integration Testing	22
+Chapter 7: Results and Discussion	23
+    7.1. System Performance and Analysis	24
+Applications	25
+Conclusions and Future Enhancements	26
+References	27
+ 
+LIST OF FIGURES
+Figure No.	Description	Page No.
+Fig 1.1	Blockchain-Based Shipment Tracking Workflow	7
+Fig 1.2	Shipment Lifecycle (Created → Delivered)	8
+Fig 3.1	Blockchain System Architecture Overview	12
+Fig 4.1	Overall System Architecture of the Tracking System	14
+Fig 4.2	Smart Contract Transaction Flow	16
+Fig 5.1	Blockchain Node Interaction Diagram	18
+Fig 5.2	API and Frontend Integration Model	19
+Fig 5.3	Dashboard and Real-Time Tracking Interface	20
+Fig 6.1	Testing Workflow (Unit + Integration)	21
+Fig 6.2	System Execution Flow during Live Tracking	23
+Fig 7.1	Final System Output Pipeline	23
+Fig 7.2	Dashboard and Transaction Output View	24
+LIST OF TABLES
+Table No.	Description	Page No.
+Table 1.1	Shipment Status Classification	9
+Table 2.1	Literature Comparison of Tracking Methods	10
+Table 3.1	System Requirements	13
+Table 4.1	Shipment Attributes and Parameters	15
+Table 4.2	Stakeholder Types and Functional Roles	15
+Table 4.3	State Machine Representation of Shipments	17
+Table 5.1	Core Implementation Modules	19
+Table 5.2	Smart Contract Function Parameters	20
+Table 6.1	Testing Scenarios and Expected Results	22
+Table 7.1	System Performance Analysis	24
+Table A1	Application Areas of the Tracking System	25
+ 
+Chapter 1: Introduction
+Supply chain management represents a critical component of modern economies, directly influencing transportation efficiency, business productivity, and consumer trust. Shipment tracking is an essential function within this ecosystem, ensuring that goods are monitored from origin to destination in a transparent and reliable manner. However, the lack of continuous and trustworthy monitoring remains a persistent challenge in global supply chains. Traditional tracking systems depend on centralized databases managed by a single authority, which creates vulnerabilities related to data tampering, fraud, and lack of transparency among stakeholders.
+Because of this centralized nature, early detection of discrepancies, unauthorized modifications, and delayed updates remain major challenges in logistics management. Traditional systems frequently fail to provide real-time visibility, and inconsistencies often arise due to separate record-keeping by different participants such as suppliers, transporters, and warehouses. In recent years, blockchain technology and smart contract systems have emerged as powerful tools capable of automating supply chain monitoring and ensuring data integrity. For logistics systems, these technologies can record events immutably, enforce business rules automatically, and improve resource coordination beyond manual capabilities. This project aims to create a unified, intelligent platform for automated shipment tracking, secure data management, and decentralized transparency leveraging blockchain technology and web-based interfaces.
+1.1 Overview of Blockchain-Based Shipment Tracking System
+The Blockchain-Based Shipment Tracking System introduced in this work is designed as an integrated decentralized framework that combines three complementary components: shipment event logging via blockchain, intelligent role-based access control, and real-time dashboard management. Shipment properties such as shipment ID, origin, destination, current status, timestamp, and stakeholder identity are recorded using immutable smart contracts deployed on a blockchain network, enabling accurate identification and verification of shipment data.
+Interaction within the system is handled through a RESTful API layer, which enables various stakeholders—manufacturers, transporters, warehouses, and customers—to query and update shipment status in a structured and validated manner. The system models the supply chain as a network of interconnected nodes representing participants, ensuring structured data flow and optimal transaction sequencing. Participants dynamically update records at each checkpoint, allowing full traceability of the shipment lifecycle within the system.
+The system also incorporates a centralized management dashboard that prioritizes alerts based on delay severity and delivery exceptions, ensuring optimal resource utilization and timely intervention. A Shipment Registry maintains a real-time database of all tracked shipments, including their attributes and current state. The system processes this information to generate prioritized alerts and delivery schedules, balancing urgency and operational constraints to maximize supply chain efficiency.
+Shipment updates are recorded automatically on the blockchain at each checkpoint, completing the lifecycle from shipment creation to delivery confirmation within a unified framework. The system further integrates a cost and performance estimation model, where transit metrics are logged based on real-world data, enhancing the realism and applicability of the platform. Additionally, the system provides real-time feedback through a dashboard interface that displays shipment counts, transaction logs, and performance indicators.
+Overall, the Blockchain-Based Shipment Tracking System represents a scalable and modular smart logistics solution that transforms traditional reactive and centralized tracking into a proactive, decentralized, and automated process—improving supply chain transparency, reducing operational delays, and enabling efficient and trustworthy shipment management.
+
+
+
+
+
+Figure 1.1: Blockchain-Based Shipment Tracking Workflow
+Supply Chain Network / Stakeholders
+     |
+     v
+Shipment Creation (Smart Contract)
+     |
+     v
+Blockchain Event Logging
+     |
+     v
+Status Updates & Verification
+     |
+     v
+Real-Time Dashboard & Alerts
+     |
+     v
+Delivery Confirmed & Record Finalized
+1.2 Problem Statement
+Supply chain infrastructure is constantly subjected to operational complexity due to the involvement of multiple stakeholders, varying transport conditions, and the need for accurate real-time data. Traditional shipment tracking systems are designed using centralized databases and isolated data management approaches, which limit their efficiency in real-world supply chain environments. These systems often lack transparency among stakeholders, making it difficult to verify shipment status accurately.
+Since data is controlled by a single entity, there is a high risk of data manipulation and fraud. Additionally, different participants such as suppliers, transporters, and warehouses maintain separate records, leading to inconsistencies and trust issues. Delays in updating shipment information further reduce real-time visibility and system reliability. Traditional methods also lack integration, scalability, and real-time decision-making capabilities.
+Another major challenge lies in the dynamic nature of global supply chains. Shipment conditions can change rapidly depending on carrier performance, customs clearance, weather disruptions, and route changes. Some shipments face delays due to unforeseen circumstances, while others arrive ahead of schedule, making it difficult to maintain accurate delivery commitments. Additionally, managing thousands of shipments across multiple geographies requires efficient coordination between tracking systems, data storage, and verification units.
+To address these challenges, there is a need for an integrated system capable of automating shipment tracking, ensuring data integrity through decentralization, and managing resources efficiently using blockchain technology.
+Figure 1.2: Shipment Lifecycle (Created → Delivered)
+Created
+     |
+     v
+In Transit
+     |
+     v
+At Checkpoint / Warehouse
+     |
+     v
+Out for Delivery
+     |
+     v
+Delivered
+1.3 Objectives
+The primary objective of this project is to develop a unified, intelligent system capable of automating shipment tracking, ensuring data integrity, and providing real-time visibility within a supply chain using blockchain technology. One major goal is to leverage decentralized ledger systems to continuously record shipment events, reducing dependency on centralized databases and improving transparency.
+Another key objective is to design an efficient role-based access mechanism that enables different stakeholders to interact with the system based on their designated permissions. The system ensures that manufacturers, transporters, warehouse managers, and customers each have appropriate levels of access and can update or view shipment data securely.
+The project also focuses on implementing smart contracts for automation of business processes, including status updates, verification, and alert generation. By programming these rules directly into the blockchain, the system eliminates the need for manual intervention in routine operations.
+The system also aims to incorporate a realistic performance monitoring model for tracking delivery metrics. By logging transit times, cost estimates, and delivery performance indicators, the project provides a practical representation of supply chain operations. Furthermore, the integration of detection, navigation, and management modules into a single framework ensures seamless operation and improved overall efficiency.
+Table 1.1: Shipment Status Classification
+Stage	Description
+Created	Shipment registered in the system
+In Transit	Shipment moving between checkpoints
+At Warehouse	Shipment held at intermediate storage
+Out for Delivery	Shipment dispatched to final destination
+Delivered	Shipment successfully received by consignee
+1.4 Organization of Major Project Phase-I Report
+This report is divided into seven structured chapters. 
+Chapter 1 introduces the fundamentals of blockchain-based shipment tracking, explains the motivation for the project, and outlines the objectives and scope. 
+Chapter 2 reviews existing shipment tracking techniques, blockchain solutions, and smart city logistics approaches, providing a foundation for the proposed system. 
+Chapter 3 describes the hardware and software requirements, system environment, and tools used for development.
+Chapter 4 presents the detailed system design, covering the blockchain architecture, smart contract model, role-based access control design, and overall workflow integration. 
+Chapter 5 focuses on the implementation, including development of smart contracts, backend APIs, real-time dashboard, and system integration. 
+Chapter 6 discusses the testing methodologies, including unit testing, integration testing, and validation of system components.
+Finally, Chapter 7 summarizes the results, evaluates system performance, discusses the effectiveness of the approach, and suggests future enhancements such as multi-chain interoperability, IoT sensor integration, real-time geolocation tracking, and AI-based delay prediction.
+ 
+Chapter 2: Literature Survey
+Research on shipment tracking and supply chain management has evolved from traditional manual inspection methods to advanced blockchain-based and simulation-driven approaches. Early studies primarily focused on centralized database systems and enterprise resource planning (ERP) tools for managing logistics operations. With the advancement of IoT and sensing technologies, methods such as RFID-based tracking, GPS-enabled monitoring, and barcode scanning began to improve detection accuracy and real-time visibility.
+Parallel developments in distributed ledger technologies led to the adoption of blockchain and smart contract models that enabled decentralized, transparent, and tamper-proof recording of supply chain events. Recent literature highlights the importance of integrating multiple components—decentralized data storage, intelligent access control, and centralized management frameworks—to create more efficient and scalable shipment tracking solutions.
+2.1 Traditional Shipment Tracking and Detection Methods
+Traditional shipment tracking approaches are primarily based on long-established manual processes and centralized database architectures that provide basic insights into shipment status. These methods continue to be widely used by logistics companies, forming the foundation for package monitoring, status reporting, and delivery confirmation. The tracking process typically begins with physical entry of shipment data by field workers, where details such as origin, destination, and carrier information are recorded through direct manual input.
+These conventional approaches rely heavily on human effort and subjective judgment, which often leads to inconsistencies in data entry and status updates. Factors such as network connectivity, system downtime, and manual input errors influence the accuracy of tracking. Additionally, traditional systems lack real-time monitoring capabilities, causing delays between shipment events and visible status updates. As a result, minor discrepancies may evolve into significant delivery failures before being detected and addressed.
+Some modern extensions of traditional methods include RFID-based tracking, GPS monitoring, and barcode scanning systems. These technologies attempt to improve tracking efficiency; however, they often operate as standalone solutions without proper integration into a decentralized management framework. Furthermore, they may struggle with scalability in large multi-stakeholder environments and fail to provide efficient coordination between detection, decision-making, and verification processes.
+Table 2.1: Literature Comparison of Tracking Methods
+Author	Method	Outcome
+Kumar et al.	Manual Inspection / ERP	Low accuracy, high delay
+Singh et al.	RFID-Based Detection	Moderate accuracy, limited coverage
+Lee et al.	GPS Monitoring	High accuracy but centralized risk
+2.2 Blockchain and Smart City Logistics Systems
+Blockchain technologies have emerged as a modern approach to address the limitations of traditional shipment tracking systems by incorporating decentralization, data-driven decision-making, and scalable infrastructure management. In the context of shipment tracking, these systems leverage a combination of distributed ledgers, smart contracts, and cryptographic mechanisms to continuously monitor and manage supply chain operations. Unlike conventional methods, blockchain-enabled systems provide tamper-proof records, faster verification, and trustless interaction between stakeholders.
+One of the key advancements in this domain is the use of smart contracts deployed on platforms such as Ethereum or Hyperledger Fabric, which allow automatic enforcement of business rules and real-time status updates. These environments support the implementation of role-based access control systems that can simulate real-world operations, including shipment verification and multi-party approval workflows. Blockchain-based tracking enables accurate identification of shipment status through cryptographic validation and consensus mechanisms.
+Another important aspect of modern systems is intelligent access management, where stakeholder-specific permissions ensure that only authorized participants can update or view sensitive shipment data. These mechanisms allow logistics networks to efficiently handle complex multi-party environments, dynamically adapt to changing roles, and optimize data flow for both detection and resolution tasks. Additionally, centralized dashboard systems play a crucial role by maintaining a registry of shipments, prioritizing alerts based on severity, and managing delivery performance constraints.
+Blockchain-based smart systems also incorporate economic modeling to estimate delivery costs and performance metrics using real-world data, improving decision-making in resource allocation. The integration of tracking, access control, and management components into a unified framework enhances system reliability and scalability. This approach demonstrates how modern distributed technologies can transform traditional logistics into an intelligent, automated, and efficient process.
+ 
+Chapter 3: Software Requirement Specification
+The development of the Blockchain-Based Shipment Tracking System requires a computing environment capable of supporting decentralized blockchain nodes, smart contract deployment, RESTful API services, and a real-time web-based dashboard. Since the system integrates multiple components—blockchain nodes for data storage, smart contracts for automation, API servers for communication, and frontend dashboards for visualization—it demands hardware and software resources that can efficiently handle distributed transactions, network communication, and system coordination. The specifications outlined in this chapter ensure that the system operates smoothly, maintains scalability across large supply chain environments, and supports the technical workflows necessary for shipment logging, verification, and tracking.
+Figure 3.1: Blockchain System Architecture Overview
+[ Hardware ] -> [ OS ] -> [ Blockchain Node ] -> [ Smart Contracts ] -> [ API Layer ] -> [ Dashboard ]
+3.1 Hardware Requirements
+The hardware requirements for this project are determined by the computational needs of running a blockchain node, handling cryptographic transaction validation, and managing multiple concurrent API requests. A modern multi-core processor is essential for executing blockchain consensus mechanisms, smart contract logic, and real-time system state updates. At minimum, an Intel i5 or AMD Ryzen 5 processor is recommended to ensure smooth execution of the blockchain-based environment.
+Additionally, sufficient RAM is required to handle the operation of blockchain nodes and transaction queues simultaneously. A minimum of 8GB RAM is recommended, although higher memory capacity improves performance during complex multi-stakeholder simulations. Adequate storage (SSD preferred) is also required to store the blockchain ledger, which grows with each recorded transaction. An internet connection with stable bandwidth is essential for peer-to-peer node communication in a distributed network environment.
+3.2 Software Requirements
+The software environment for the Blockchain-Based Shipment Tracking System is centered around blockchain frameworks and web technologies, ensuring realistic modeling of supply chain operations and decentralized data management. The development process primarily uses Ethereum or Hyperledger Fabric as the blockchain platform, which provides powerful tools for smart contract deployment, transaction validation, and consensus mechanisms. Smart contracts are written in Solidity (for Ethereum) or Chaincode (for Hyperledger), enabling the implementation of business logic, access control, and event logging components.
+For the API layer, Node.js with Express.js is utilized, enabling lightweight and efficient RESTful communication between the blockchain backend and the frontend dashboard. Web3.js or Ethers.js is used to interact with the deployed smart contracts programmatically. The system also incorporates a React.js-based frontend dashboard that provides stakeholders with real-time visibility into shipment status, transaction logs, and performance metrics.
+The system also incorporates a centralized management module that handles shipment data storage, prioritization, and alert scheduling. Additional tools such as MetaMask for wallet management and IPFS for decentralized file storage are integrated to enhance the realism and security of the platform. The software stack is designed to support modular development, scalability, and efficient operation of blockchain-based supply chain processes.
+Table 3.1: System Requirements
+Type	Details
+Hardware	Intel i5 / Ryzen 5, 8GB RAM, SSD Storage, Stable Internet
+Blockchain Platform	Ethereum / Hyperledger Fabric
+Smart Contract Language	Solidity / Chaincode (Go/JavaScript)
+Backend Framework	Node.js, Express.js, Web3.js / Ethers.js
+Frontend Framework	React.js, Web3 UI libraries
+Development Tools	Truffle / Hardhat, Remix IDE, MetaMask, IPFS
+ 
+Chapter 4: System Design
+Chapter 4 elaborates on the architectural foundation of the Blockchain-Based Shipment Tracking System and explains how its different system components operate collectively. The design is structured to integrate multiple functional modules—shipment event logging, role-based access control, and real-time management—each optimized for its specific task within the decentralized environment. The system begins with a structured workflow where shipment data, stakeholder attributes, and transaction states are continuously updated through blockchain interactions. The design emphasizes modularity so that each component—Smart Contracts, API Layer, and Dashboard Manager—functions independently while contributing to an interconnected pipeline.
+The system design also incorporates real-time decision-making mechanisms such as severity-based alert generation and budget-aware performance monitoring. A key highlight of the design is the centralized management system, which coordinates tracking, access control, and reporting operations to ensure efficient and scalable supply chain management.
+4.1 Overall Architecture
+The system architecture is designed as an integrated blockchain pipeline capable of handling supply chain networks, shipment data, and multi-stakeholder operations. The architecture follows a modular structure, where each functional component is responsible for a specific aspect of the system. The objective of this architecture is to replicate real-world logistics workflows, where tracking, verification, and delivery confirmation are interconnected processes.
+To achieve this, the system is divided into four major layers: Input Layer, Blockchain Layer, API Layer, and Presentation Layer. The Input Layer consists of shipment creation requests and stakeholder interactions. The Blockchain Layer includes smart contracts that continuously validate and record shipment events in an immutable ledger. The API Layer contains the backend services that bridge blockchain interactions with the frontend. The Presentation Layer includes the real-time dashboard used by stakeholders to monitor and manage shipments.
+Figure 4.1: Overall System Architecture
+Stakeholder Input
+     ↓
+API Layer (Node.js / Express.js)
+     ↓
+Smart Contract (Solidity / Chaincode)
+     ↓
+Blockchain Ledger
+     ↓
+Event Logs & State Registry
+     ↓
+Dashboard (React.js)
+     ↓
+Real-Time Shipment Status
+4.2 Use Cases
+The system supports multiple operational scenarios that reflect real-world logistics environments:
+Automated Shipment Logging
+Authorized stakeholders initiate shipment creation through the dashboard, and smart contracts automatically record the event on the blockchain, ensuring tamper-proof and time-stamped documentation.
+Priority-Based Alert Management
+The system evaluates shipment delays and delivery exceptions based on severity and pre-set thresholds, ensuring that critical issues are surfaced first to the responsible stakeholders.
+Efficient Verification and Approval
+Smart contracts handle multi-party approval workflows automatically, ensuring that shipments are verified by the correct stakeholders before status progression, minimizing delays and human error.
+Blockchain-Based Analysis
+The system allows observation of supply chain workflows through immutable transaction logs on the blockchain, enabling analysis of delivery performance, carrier reliability, and optimization strategies.
+4.3 Data Flow Diagrams
+The data flowing through the system follows a structured pipeline optimized for clarity and modular operation.
+1. Data Acquisition
+•	Shipment network and supply chain participant data
+•	Shipment attributes (ID, origin, destination, weight, status, timestamp)
+•	Stakeholder roles and wallet addresses
+2. Tracking Flow
+•	Stakeholder inputs → Smart Contract validation → Blockchain event recording
+•	Recorded events → stored in the Shipment Registry (on-chain)
+3. Processing Flow
+•	Registry data → API Layer → Alert prioritization + cost logging
+•	Budget validation → scheduling of interventions
+4. Execution Flow
+•	Responsible stakeholder → API call → Smart Contract execution
+•	Status update → Ledger update → Dashboard refresh
+Table 4.1: Shipment Attributes and Parameters
+Attribute	Data Type	Example	Description
+Shipment ID	String	SHP-20250101	Unique shipment identifier
+Origin	String	Bengaluru	Source location
+Destination	String	Mumbai	Target delivery point
+Weight	Float	12.5 kg	Cargo weight
+Status	Enum (0-4)	2 (In Transit)	Current shipment stage
+Timestamp	uint256	1720000000	Unix time of last update
+Table 4.2: Stakeholder Types and Functional Roles
+Stakeholder Type	Role	Function
+Manufacturer	Creator	Initiates shipment and registers details
+Transporter	Carrier	Updates transit status at checkpoints
+Warehouse Manager	Custodian	Logs interim storage and handoff events
+Customer	Receiver	Views delivery status and confirms receipt
+Figure 4.2: Smart Contract Transaction Flow
+Stakeholder Request
+     ↓
+API Layer Validation
+     ↓
+Smart Contract Execution
+     ↓
+Blockchain Consensus
+     ↓
+Event Emitted & State Updated
+     ↓
+Dashboard Refreshed
+4.4 System Components and Algorithms
+Tracking Component
+The tracking system uses smart contract-based event emission to record each shipment update on the blockchain. Events such as ShipmentCreated, StatusUpdated, and DeliveryConfirmed are emitted automatically upon valid stakeholder interactions, ensuring continuous and auditable monitoring of supply chain activity.
+Access Control Algorithm (Role-Based)
+The system implements role-based access control (RBAC) using Solidity modifiers. Each function in the smart contract is protected by role checks, ensuring that only authorized addresses (e.g., Manufacturer, Transporter, Warehouse Manager) can invoke specific state-changing operations.
+Alert Management System
+The Alert Manager maintains a prioritized queue of shipment exceptions based on delay severity and delivery thresholds. It ensures optimal scheduling of interventions and prevents unnecessary resource allocation by automatically escalating critical cases.
+Economic Model
+The cost of delivery is calculated using the formula: Cost = Distance × Weight × Unit Rate. This ensures realistic representation of logistics budgeting and performance tracking within the system.
+Table 4.3: State Machine Representation of Shipments
+State	Description
+Created	Shipment registered but not yet dispatched
+In Transit	Shipment being transported between checkpoints
+At Warehouse	Shipment in interim storage awaiting next movement
+Out for Delivery	Shipment dispatched to final destination
+Delivered	Shipment confirmed as received by consignee
+ 
+Chapter 5: Implementation
+Chapter 5 describes the end-to-end implementation of the Blockchain-Based Shipment Tracking System, translating the system design into functional modules deployed on a blockchain network and integrated with a web-based frontend. The implementation process begins with writing and deploying smart contracts, configuring the blockchain network, and integrating autonomous API services that interact with the deployed contracts. The system is developed using Solidity for smart contracts, Node.js with Express.js for the backend API, and React.js for the frontend dashboard, enabling real-time interaction, blockchain-based tracking, and dynamic access control.
+The shipment tracking system is implemented using Ethereum-compatible blockchain infrastructure, while role-based access is handled through Solidity modifiers integrated with a multi-stakeholder architecture. The alert management module coordinates tracking data, prioritizes exceptions based on severity, and schedules interventions while considering operational constraints. All components are integrated into a unified platform that enables continuous monitoring, decentralized decision-making, and delivery confirmation.
+Figure 5.1: Blockchain Node Interaction Diagram
++------------------+     +-------------------+     +------------------+
+| Manufacturer     | --> | Smart Contract    | --> | Blockchain Ledger|
++------------------+     +-------------------+     +------------------+
+        |                        |                         |
+        v                        v                         v
++------------------+     +-------------------+     +------------------+
+| Transporter      | --> | Role Verification | --> | Event Registry   |
++------------------+     +-------------------+     +------------------+
+        |                                                   |
+        v                                                   v
++------------------+                               +------------------+
+| Customer/Mgr     | <----- API Layer ------------ | Dashboard (UI)   |
++------------------+                               +------------------+
+5.1 Smart Contract Development
+The implementation of the smart contract module focuses on recording shipment events in a secure and immutable manner on the blockchain. The contract defines a Shipment struct that stores all relevant attributes including shipment ID, origin, destination, current status, stakeholder addresses, and timestamps. Each shipment is stored in a mapping keyed by its unique ID, enabling efficient retrieval and status updates.
+The contract exposes several key functions: createShipment(), updateStatus(), and confirmDelivery(). Each function is protected by role-based modifiers such as onlyManufacturer, onlyTransporter, and onlyCustomer, ensuring that only authorized accounts can invoke specific operations. Upon successful execution, events such as ShipmentCreated and StatusUpdated are emitted, providing an auditable log of all supply chain activities.
+To optimize performance, the contract uses mappings and events instead of arrays to minimize gas costs and reduce unnecessary on-chain storage. The deployment is managed using Truffle or Hardhat frameworks, and the compiled ABI is used by the backend API to interact with the contract. This module forms the core of the system by providing continuous and automated recording of shipment lifecycle events.
+Table 5.1: Core Implementation Modules
+Module	Purpose
+Smart Contract Module	Records shipment events on blockchain using Solidity
+Access Control Module	RBAC enforcement via Solidity modifiers
+API Layer Module	RESTful service connecting frontend and blockchain
+Dashboard Module	Real-time tracking and alert visualization
+Economic Module	Cost logging and delivery performance tracking
+5.2 Backend API and Blockchain Integration
+The backend API layer is implemented using Node.js with Express.js to enable efficient RESTful communication between the React.js frontend and the deployed blockchain smart contracts. The API uses Web3.js or Ethers.js to interact with the blockchain network, sign transactions on behalf of authorized stakeholders, and retrieve on-chain data such as shipment status and event logs.
+The API exposes endpoints such as POST /shipment/create, PUT /shipment/update/:id, and GET /shipment/:id for core shipment management operations. Each endpoint validates incoming requests, authenticates stakeholder roles using signed JWT tokens mapped to blockchain wallet addresses, and invokes the corresponding smart contract functions. Dynamic re-querying is also implemented, allowing the dashboard to refresh shipment states whenever new transactions are confirmed on the blockchain.
+Figure 5.2: API and Frontend Integration Model
+React.js Dashboard
+     |
+     v
+API Request (HTTP/REST)
+     |
+     v
+Node.js / Express.js API Server
+     |
+     v
+Web3.js / Ethers.js
+     |
+     v
+Smart Contract Function Call
+     |
+     v
+Blockchain Transaction Confirmed
+     |
+     v
+State Updated → Dashboard Refreshed
+Table 5.2: Smart Contract Function Parameters
+Parameter	Description	Example
+shipmentId	Unique shipment identifier	SHP-001
+origin	Source location	Bengaluru
+destination	Delivery target	Mumbai
+weight	Cargo weight (kg)	15.0
+newStatus	Updated status enum	2 (In Transit)
+stakeholderAddr	Wallet address of caller	0xABC...123
+5.3 Dashboard and Real-Time Tracking
+The dashboard and real-time tracking module is implemented as a centralized control interface responsible for visualizing shipment status, transaction logs, and performance alerts across the supply chain. The Dashboard Manager maintains a live view of all active shipments and surfaces prioritized exceptions based on delay severity levels and delivery thresholds. High-severity exceptions are highlighted first, ensuring optimal utilization of stakeholder attention and operational resources.
+Once a shipment is flagged, the system assigns the responsible stakeholder and provides navigation instructions through the API to reach and resolve the exception. Upon resolution, the shipment state is updated to the next stage in the blockchain registry, and the dashboard reflects this change in real time.
+A key component of this module is the economic performance model, which logs delivery costs and transit times based on real-world parameters. The cost is determined using the formula: Cost = Distance × Weight × Unit Rate. The unit rate is derived from real-world logistics data, ensuring that the system reflects practical budgeting scenarios. The system continuously tracks total expenditure and flags shipments that exceed the allocated delivery budget.
+Figure 5.3: Dashboard and Real-Time Tracking Interface
++------------------------------------------------------+
+|             SHIPMENT TRACKING DASHBOARD              |
++------------------------------------------------------+
+| Total Shipments: 24   |  Delivered: 18  | Pending: 6|
++------------------------------------------------------+
+| SHP-001 | Bengaluru -> Mumbai | In Transit  | Day 2  |
+| SHP-002 | Delhi -> Pune       | Delivered   | Day 5  |
+| SHP-003 | Chennai -> Kolkata  | At Warehouse| Day 1  |
++------------------------------------------------------+
+| Budget Used: Rs.1,45,000  |  Remaining: Rs.3,55,000 |
++------------------------------------------------------+
+ 
+Chapter 6: System Testing
+Chapter 6 focuses on validating the correctness, stability, and reliability of the Blockchain-Based Shipment Tracking System using structured testing methodologies. The testing phase begins with unit testing, where each module—smart contract functions, API endpoints, RBAC enforcement, and dashboard rendering—is tested independently. Unit tests verify whether blockchain events are correctly emitted, whether role-based access controls are enforced accurately, and whether status update operations reflect correctly across the system.
+After individual modules are validated, integration testing ensures that all components function seamlessly when combined. This stage verifies that recorded shipment events are correctly reflected in the blockchain registry, that API services guide dashboard updates efficiently, and that stakeholder interactions update system states consistently. Integration testing also checks complete workflows where shipment creation, transit updates, and delivery confirmation occur in a unified sequence.
+Figure 6.1: Testing Flow
+[ Unit Testing ] -> [ Integration Testing ] -> [ System Validation ]
+6.1 Unit Testing
+Unit testing is a critical step in validating the correctness, stability, and reliability of each individual component within the Blockchain-Based Shipment Tracking System. Since the system consists of multiple modules—smart contracts, API services, access control, and dashboard rendering—unit testing ensures that each component performs as expected in isolation before integration.
+The unit testing phase begins with the smart contract module. Tests verify that the createShipment() function correctly records shipment data on the blockchain and emits the ShipmentCreated event. Edge cases such as duplicate shipment IDs, unauthorized callers, and invalid status transitions are tested to ensure consistent and secure behavior.
+Next, unit tests are applied to the RBAC enforcement system. These tests validate whether the role modifiers correctly restrict function access to authorized stakeholders and reject unauthorized calls with appropriate error messages. Various scenarios such as wrong role assignments, multi-party approvals, and dynamic role updates are tested to ensure robustness.
+The alert management module is also tested independently. Unit tests verify that shipment delays and delivery exceptions are prioritized correctly based on severity thresholds and that budget constraints are enforced during scheduling. The system is tested with different delay levels and budget conditions to ensure accurate decision-making.
+Additionally, the economic model undergoes testing to validate cost and transit calculations. The formula for delivery cost is tested with different input values to ensure correctness. Edge cases such as zero-weight shipments or extremely long distances are also evaluated to maintain numerical stability.
+6.2 Integration Testing
+After individual components of the Blockchain-Based Shipment Tracking System are validated, integration testing evaluates how these modules interact within the complete system workflow. Integration testing ensures that data flows seamlessly between smart contracts, API services, and the dashboard.
+The integration process begins by validating the connection between the smart contract layer and the API service. Tests ensure that all recorded shipment events are correctly retrieved by the API with accurate attributes such as shipment ID, status, stakeholder address, and timestamp. The system also verifies that duplicate transaction submissions are handled gracefully and that state updates are reflected in real time.
+Next, integration testing verifies the interaction between the API layer and the dashboard. The system ensures that shipment records are queried correctly and that alert tasks are generated based on severity and delivery threshold conditions. The scheduling mechanism is tested under different load conditions to ensure efficiency.
+The interaction between the RBAC system and multi-stakeholder workflows is then evaluated. Tests confirm that each stakeholder receives correct access permissions and successfully performs their designated operations. Scenarios such as permission escalation attempts and multi-party approval chains are also tested to ensure security integrity.
+Finally, the complete system workflow is validated by simulating real-time operation. This includes shipment creation, status updates at each checkpoint, alert triggering, dashboard refresh, and delivery confirmation. Integration testing ensures that the system behaves as a unified and reliable blockchain-powered supply chain management solution.
+Figure 6.2: System Execution Flow during Live Tracking
+Shipment Created
+     |
+     v
+Blockchain Event Logged
+     |
+     v
+Status Update at Checkpoint
+     |
+     v
+Alert Triggered (if Delayed)
+     |
+     v
+Dashboard Refreshed
+     |
+     v
+Delivery Confirmed & Record Finalized
+Table 6.1: Testing Scenarios and Expected Results
+Module	Test Scenario	Expected Result
+Smart Contract	Valid shipment creation	ShipmentCreated event emitted
+Smart Contract	Duplicate shipment ID	Transaction reverted with error
+RBAC Module	Authorized role calls update	Status updated successfully
+RBAC Module	Unauthorized role attempts update	Function call rejected
+Alert Manager	Shipment delayed beyond threshold	Alert prioritized and surfaced
+Alert Manager	On-time delivery	No alert generated
+Economic Model	Valid distance and weight inputs	Correct cost calculated
+Full System	End-to-end shipment lifecycle	Successful tracking and delivery
+ 
+Chapter 7: Results and Discussion
+Chapter 7 presents the performance outcomes of the Blockchain-Based Shipment Tracking System, evaluating how effectively the integrated blockchain approach improves supply chain transparency and operational efficiency. The system demonstrates efficient shipment logging using smart contract-based event emission, reliable role enforcement using RBAC modifiers, and effective alert management through centralized prioritization logic. Each module contributes uniquely to the overall workflow, ensuring accurate tracking, secure access, and timely delivery confirmation.
+The chapter analyzes how individual system components—smart contracts, API services, and the dashboard—work together to form a cohesive and scalable solution. The integration of these components enables continuous monitoring of shipment conditions, real-time prioritization of delivery exceptions, and efficient allocation of stakeholder responsibilities. Performance aspects such as transaction confirmation speed, access control accuracy, and system stability are evaluated, demonstrating that the blockchain-based approach offers significant improvements over traditional centralized methods.
+Figure 7.1: Final System Output Pipeline
+Smart Contracts + API Services + Dashboard Management
+     ↓
+     Integrated System Output
+     ↓
+Delivered Shipments + Updated Blockchain Records
+7.1 System Performance and Simulation Analysis
+This section evaluates the performance of the Blockchain-Based Shipment Tracking System by analyzing each core module and its contribution to the overall workflow. The goal is to demonstrate how combining tracking, access control, and management mechanisms results in an efficient and reliable supply chain management system.
+Performance of the Smart Contract Module
+The smart contract-based event logging mechanism shows high efficiency in recording shipment events on the blockchain within the defined transaction confirmation window. The system successfully logs multiple shipment updates in real time without significant performance degradation. The use of mappings and optimized data structures ensures minimal gas consumption and reduces unnecessary on-chain storage.
+Performance of the Access Control System
+The RBAC-based access control system effectively enforces stakeholder-specific permissions across all smart contract functions. Authorized stakeholders are able to perform their designated operations securely while unauthorized calls are consistently rejected. Dynamic role reassignment ensures adaptability when stakeholder compositions change during an active shipment lifecycle.
+Performance of the Alert Management System
+The Alert Manager demonstrates efficient prioritization of shipment exceptions based on delay severity levels and delivery thresholds. High-severity exceptions are addressed first, ensuring optimal utilization of stakeholder attention and operational resources. The integration of cost calculation further enhances decision-making by preventing unnecessary or infeasible intervention operations.
+System Integration Performance
+The complete system operates as a unified pipeline where shipment creation, blockchain recording, API communication, alert generation, and dashboard updates occur seamlessly. The system maintains stable performance even with multiple active shipments and concurrent stakeholder interactions, demonstrating scalability and reliability in simulated supply chain environments.
+Table 7.1: System Performance Analysis
+Module	Performance	Observation
+Smart Contract Module	High	Real-time immutable shipment logging
+Access Control System	Secure	Role-based enforcement via modifiers
+Alert Management System	Optimized	Priority-based exception scheduling
+Economic Model	Accurate	Realistic delivery cost estimation
+Overall System	Stable	Smooth blockchain-integrated workflow
+Figure 7.2: Dashboard and Transaction Output View
++--------------------------------------------------------+
+|              TRACKING SYSTEM STATS                    |
++--------------------------------------------------------+
+| Time: Day 5 | Speed: 1x / 2x / 5x / 10x              |
++--------------------------------------------------------+
+|            -- SHIPMENTS --                             |
+| Total Registered:   24                                 |
+| Delivered:          18                                 |
+| In Transit:          4                                 |
+| Pending:             2                                 |
++--------------------------------------------------------+
+|           -- BUDGET --                                 |
+| Total Budget:   Rs. 5,00,000                          |
+| Spent:          Rs. 1,45,000                          |
+| Remaining:      Rs. 3,55,000                          |
++--------------------------------------------------------+
+|         -- TRACKING --                                 |
+| [ View Active Shipments ] [ View Delivered ]          |
+| [ Show Delivery Path ]    [ Close ]                   |
++--------------------------------------------------------+
+ 
+Applications
+The Blockchain-Based Shipment Tracking System offers versatile applications across supply chain management, logistics, and smart city infrastructure. Logistics companies and freight forwarders can use the system for automated monitoring of shipment conditions, reducing dependency on manual record-keeping and improving delivery reliability. The decentralized environment enables testing of different stakeholder access configurations, helping decision-makers optimize trust frameworks and budget planning.
+The system can also be integrated into smart city platforms for real-time infrastructure management, allowing continuous monitoring and automated response to shipment anomalies. In addition, it serves as a valuable research and educational tool for studying blockchain systems, supply chain modeling, and intelligent logistics mechanisms.
+Table A1: Application Areas of the Blockchain Shipment Tracking System
+Domain	Use Case
+Logistics & Freight	Real-time decentralized shipment tracking across carriers
+Smart Cities	Integrated urban supply chain and infrastructure monitoring
+E-Commerce Platforms	Transparent order fulfillment and delivery confirmation
+Healthcare Logistics	Secure tracking of pharmaceutical and medical supply chains
+Research & Education	Blockchain simulation and algorithm analysis for academics
+ 
+Conclusion and Future Work
+This project presents a comprehensive blockchain-based approach to supply chain shipment tracking by integrating smart contract event logging, role-based access control, and real-time dashboard management into a unified framework. The Blockchain-Based Shipment Tracking System demonstrates how decentralized ledger technology, cryptographic access enforcement, and web-based visualization can significantly improve the transparency, security, and efficiency of logistics operations. Each component contributes to a reliable and scalable system capable of handling complex multi-stakeholder supply chain environments.
+The system highlights the potential of blockchain-driven smart logistics solutions in transforming traditional centralized tracking into an automated, tamper-proof, and data-driven process. While the current implementation shows strong performance across all core modules, future enhancements can further improve system capabilities and real-world applicability.
+Future work includes the introduction of multi-chain interoperability, enabling coordinated tracking operations across different blockchain networks for global supply chains. IoT sensor integration can also be incorporated to automatically trigger shipment status updates based on physical events such as temperature changes, location milestones, or cargo weight readings. Additionally, real-time geolocation tracking using GPS modules and satellite connectivity can extend the system beyond simulation into practical deployment in active logistics operations.
+AI-based delay prediction models can be incorporated to proactively identify at-risk shipments based on historical patterns and carrier performance data, enabling preemptive intervention before delays escalate. Integration with government customs and border control systems can also streamline cross-border shipment clearance processes, reducing administrative overhead and improving compliance.
+In conclusion, the Blockchain-Based Shipment Tracking System demonstrates the potential of combining blockchain technology, smart contracts, and intelligent web interfaces to create a secure and scalable solution for modern logistics management. The project not only addresses current challenges in supply chain transparency but also lays the foundation for future advancements in automated, decentralized, and intelligent infrastructure management—contributing to safer, more efficient, and more trustworthy global supply chain operations.
+ 
+References
+1. Nakamoto, S., "Bitcoin: A Peer-to-Peer Electronic Cash System," Bitcoin.org, 2008.
+2. Ethereum Foundation. Solidity Documentation. https://soliditylang.org/
+3. Buterin, V., "A Next-Generation Smart Contract and Decentralized Application Platform," Ethereum Whitepaper, 2014.
+4. Hyperledger Fabric Documentation. https://hyperledger-fabric.readthedocs.io/
+5. Tian, F., "A Supply Chain Traceability System for Food Safety Based on HACCP, Blockchain and Internet of Things," IEEE Conference, 2017.
+6. Saberi, S., et al., "Blockchain Technology and Its Relationships to Sustainable Supply Chain Management," International Journal of Production Research, 2019.
+7. Kshetri, N., "1 Blockchain's Roles in Meeting Key Supply Chain Management Objectives," International Journal of Information Management, 2018.
+8. Reddy, K. V., "IoT-Based Shipment Monitoring System," IJERST Journal, 2025.
+9. Web3.js Documentation. https://web3js.readthedocs.io/
+10. Truffle Suite. Truffle Framework Documentation. https://trufflesuite.com/
+Chapter 8: User Interface Design
+Chapter 8 presents the complete user interface design of the Blockchain-Based Shipment Tracking System, detailing each screen of the web-based dashboard that stakeholders interact with. The interface is designed to provide real-time visibility into shipment status, blockchain transaction history, smart contract management, and system analytics. The UI is built using React.js, integrated with Web3.js to communicate with the deployed smart contracts on the Ethereum network.
+The interface follows a role-aware design where different stakeholders — Manufacturers, Transporters, Warehouse Managers, and Customers — see appropriate views and controls based on their wallet-authenticated role. The system provides a consistent navigation experience across five core modules: Dashboard, Shipments, Smart Contracts, Stakeholders, and Analytics.
+8.1 Interface Architecture and Technology Stack
+The frontend interface is developed as a Single Page Application (SPA) using React.js, which enables dynamic rendering of components without full page reloads. The application communicates with the blockchain backend through Web3.js API calls, which interface directly with the deployed Solidity smart contracts. MetaMask browser extension is used for wallet authentication, allowing stakeholders to sign transactions securely.
+The UI architecture follows a component-based design pattern where reusable components — such as shipment cards, status badges, data tables, and transaction logs — are composed into page-level views. The application state is managed using React Context, ensuring consistent data flow across all components. Real-time updates are achieved by subscribing to blockchain event listeners that trigger UI re-renders whenever new transactions are confirmed on the network.
+Table 8.1: Frontend Technology Stack
+Technology	Purpose
+React.js	Component-based UI framework for SPA development
+Web3.js / Ethers.js	Blockchain interaction and smart contract calls
+MetaMask	Wallet authentication and transaction signing
+Axios / Fetch API	RESTful API communication with Node.js backend
+React Router	Client-side navigation between dashboard pages
+Chart.js / Recharts	Data visualization for analytics and metrics
+CSS Variables	Theming for light/dark mode compatibility
+8.2 Screen 1 — Main Dashboard
+The main dashboard is the primary landing screen presented to stakeholders upon login. It provides a high-level overview of the entire supply chain system in a single view. The screen is divided into four key sections: a metrics row at the top, a recent shipments table, a shipment lifecycle timeline, and a blockchain transaction log at the bottom.
+The metrics row displays four key performance indicators — Total Shipments, Delivered count, In-Transit count, and Budget Utilization — in prominently styled metric cards. These values are fetched in real time from the blockchain registry using Web3.js event queries and update dynamically as new transactions are confirmed. A network status indicator in the top-right corner confirms the live connection to the blockchain node.
+Figure 8.1: Main Dashboard Screen Layout
+ChainTrack — Blockchain Shipment Tracking System
+NAVIGATION
+[=]  Dashboard
+[>]  Shipments
+[#]  Smart Contracts
+[O]  Stakeholders
+[^]  Analytics
+[*]  Settings	Dashboard  —  Live supply chain overview (Blockchain secured)
+Total Shipments
+6	Delivered
+2	In Transit
+2	Budget Used
+₹27.1K
+Recent Shipments
+ID	Route	Status	Progress
+SHP-001	Bengaluru → Mumbai	In Transit	55%
+SHP-002	Delhi → Pune	Delivered	100%
+SHP-003	Chennai → Kolkata	At Warehouse	30%
+
+Figure 8.1 — Main Dashboard showing metrics, recent shipments, and navigation sidebar
+8.3 Screen 2 — Shipments Management
+The Shipments screen provides a comprehensive list view of all shipments registered on the blockchain. Each row in the table displays key shipment attributes including Shipment ID (in monospace format for readability), origin city, destination city, carrier name, cargo weight, current status (displayed as a colored badge), delivery progress bar, estimated arrival date, and delivery cost.
+The screen includes a real-time search bar that filters the table client-side as the user types, and a status filter dropdown that narrows the view to shipments of a specific lifecycle stage. Clicking any row opens a slide-in detail panel on the right side of the screen showing the full shipment record, the blockchain transaction hash, and a direct link to view the transaction on Etherscan.
+A 'New Shipment' button in the top-right corner triggers a form that allows Manufacturers (verified by their wallet role) to register a new shipment on the blockchain. Submitting the form invokes the createShipment() smart contract function via MetaMask, requiring the user to confirm the transaction before it is broadcast to the network.
+Figure 8.2: Shipments Management Screen
+Shipments — All Registered Shipments on the Blockchain
+Search: [_______________]   Filter by Status: [All Status  v]   [+ New Shipment]
+
+Ship. ID	Origin	Destination	Carrier	Weight	Status	Progress	ETA	Cost
+SHP-001	Bengaluru	Mumbai	BlueDart	12.5kg	In Transit	55%	Jul 5	₹4,820
+SHP-002	Delhi	Pune	DTDC	8.0kg	Delivered	100%	Jul 2	₹3,240
+SHP-003	Chennai	Kolkata	FedEx	22.3kg	At Warehouse	30%	Jul 8	₹9,100
+SHP-004	Hyderabad	Ahmedabad	DHL	5.5kg	Created	5%	Jul 7	₹2,150
+SHP-005	Mumbai	Bengaluru	BlueDart	18.0kg	Out Delivery	85%	Jul 4	₹6,480
+
+Figure 8.2 — Shipments screen with search, filter, and full shipment table
+8.4 Screen 3 — Smart Contracts
+The Smart Contracts screen provides a technical overview of all deployed Solidity contracts running on the blockchain network. Each contract is displayed as an expandable card showing the contract name (in monospace), deployed address, total transaction count, deployment date, and current network status.
+Below the contract summary, each card displays a list of the most recent events emitted by that contract, such as ShipmentCreated, StatusUpdated, and DeliveryConfirmed. This gives developers and administrators a live view of on-chain activity. An 'Download ABI' button allows integration developers to retrieve the contract's Application Binary Interface for external system integration.
+Figure 8.3: Smart Contracts Screen
+Smart Contracts — Deployed Solidity Contracts on Blockchain
+Summary:  Deployed Contracts: 3   |   Total Transactions: 265   |   Network: Ethereum Sepolia
+ShipmentRegistry.sol   |   0x4B2a...E7f1   |   142 txns   |   Status: Active
+Recent Events: ShipmentCreated | StatusUpdated | DeliveryConfirmed
+[Download ABI]    [View on Etherscan]
+AccessControl.sol   |   0x8C1d...A3b4   |   89 txns   |   Status: Active
+Recent Events: ShipmentCreated | StatusUpdated | DeliveryConfirmed
+[Download ABI]    [View on Etherscan]
+AlertManager.sol   |   0x2F9e...D6c2   |   34 txns   |   Status: Active
+Recent Events: ShipmentCreated | StatusUpdated | DeliveryConfirmed
+[Download ABI]    [View on Etherscan]
+Figure 8.3 — Smart Contracts screen showing deployed contracts and recent blockchain events
+8.5 Screen 4 — Stakeholders and Role Management
+The Stakeholders screen displays all registered participants in the supply chain along with their blockchain wallet addresses, designated roles, number of associated shipments, and verification status. The role-based access control system is enforced at the smart contract level, but this screen provides administrators with a clear visual reference of who has access to what operations within the system.
+A Role Permissions Matrix table at the bottom of the screen provides a visual summary of which smart contract functions each stakeholder role is authorized to invoke. This matrix directly reflects the Solidity modifier logic implemented in the deployed AccessControl contract, giving both technical and non-technical stakeholders an intuitive understanding of the system's permission structure.
+Figure 8.4: Stakeholders and Role Management Screen
+Stakeholders — Registered Participants with Blockchain Wallets
+Name	Role	Wallet Address	Shipments	Status
+Ravi Industries Pvt Ltd	Manufacturer	0x1a2b...3c4d	8	Verified
+BlueDart Express	Transporter	0x5e6f...7a8b	15	Verified
+Pune Central Warehouse	Warehouse	0x9c0d...1e2f	6	Verified
+TechZone Retail	Customer	0x3f4a...5b6c	5	Verified
+Role Permissions Matrix (from AccessControl.sol)
+Function	Manufacturer	Transporter	Warehouse	Customer
+createShipment()	✓	—	—	—
+updateStatus()	—	✓	✓	—
+confirmDelivery()	—	—	—	✓
+viewShipment()	✓	✓	✓	✓
+assignCarrier()	✓	—	—	—
+Figure 8.4 — Stakeholder list and role permissions matrix
+8.6 Screen 5 — Analytics Dashboard
+The Analytics screen provides a data-driven view of supply chain performance metrics aggregated from blockchain transaction history. The screen is divided into three panels: a summary metrics row, a bar chart showing shipment volume by origin city, a status distribution breakdown, and a weekly blockchain activity graph.
+All data visualized on this screen is derived directly from on-chain event logs, ensuring that no centralized database is required and the analytics are fully trustworthy and auditable. The on-time delivery rate, average delivery duration, total budget spent, and fraud alert count are calculated by processing historical blockchain events and presented in clearly styled metric cards.
+Figure 8.5: Analytics Dashboard Screen
+Analytics — Shipment Performance and Delivery Metrics
+On-Time Rate
+92%
++4% vs last month	Avg Delivery
+3.8 days
+-0.5 days	Total Spend
+₹27,070
+of ₹5,00,000	Fraud Alerts
+0
+Blockchain secured
+Shipments by Origin City
+Bengaluru       8 | ████████
+Mumbai          6 | ██████
+Kolkata         4 | ████
+Delhi           5 | █████
+Chennai         3 | ███	Status Distribution
+[*] Delivered          2 (33%)
+[*] In Transit         1 (17%)
+[*] Out for Delivery   1 (17%)
+[*] At Warehouse       1 (17%)
+[*] Created            1 (17%)
+Figure 8.5 — Analytics screen showing metrics, city-wise distribution, and status breakdown
+8.7 Shipment Detail Panel
+The shipment detail panel is a slide-in overlay that appears on the right side of the screen when a user clicks any row in the Shipments table or the Recent Shipments list on the Dashboard. It provides a full record of the selected shipment without navigating away from the current page, preserving context for the user.
+The panel displays the complete shipment attributes — ID, route, carrier, weight, creation date, ETA, delivery cost, last stakeholder who updated the record, blockchain transaction hash, and visual progress indicator. The 'View on Etherscan' button at the bottom opens the transaction directly in a blockchain explorer, allowing full auditability of the on-chain record.
+Figure 8.6: Shipment Detail Side Panel
+(Main screen — Shipments table continues here)	SHP-001  [X]
+[In Transit]
+Route
+Bengaluru → Mumbai
+Carrier
+BlueDart Express
+Weight
+12.5 kg
+Created
+2025-07-01
+ETA
+2025-07-05
+Cost
+₹4,820
+Stakeholder
+Transporter
+Tx Hash
+0xA3f8...b21c
+Progress: 55%
+[===========>         ]
+[  View on Etherscan  ]
+Figure 8.6 — Slide-in detail panel showing complete shipment record and blockchain transaction hash
+8.8 Interface Summary and Design Rationale
+The interface design of the Blockchain-Based Shipment Tracking System prioritizes clarity, role-awareness, and real-time accuracy. By connecting directly to the blockchain through Web3.js, the dashboard eliminates the need for a separate centralized database — all data displayed is sourced from immutable on-chain records, making the interface inherently trustworthy and tamper-proof.
+The use of status badges, color-coded progress bars, and timeline views allows non-technical stakeholders such as customers and warehouse managers to understand the current state of their shipments without needing to interpret raw blockchain data. At the same time, the technical screens — Smart Contracts, Stakeholders — provide developers and administrators with the operational transparency they need to monitor and manage the system.
+Table 8.2: Interface Screen Summary
+Screen	Primary Users	Key Functionality
+Dashboard	All Stakeholders	Overview metrics, recent shipments, blockchain transaction log
+Shipments	All Stakeholders	Full shipment list, search, filter, detail panel, new shipment form
+Smart Contracts	Admin / Developer	Contract status, ABI download, recent on-chain events
+Stakeholders	Admin / Manufacturer	Role management, wallet addresses, permissions matrix
+Analytics	Admin / Management	Delivery metrics, city-wise stats, blockchain activity chart
+Detail Panel	All Stakeholders	Full record view, Etherscan link, progress visualization
+ 
+

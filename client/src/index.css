@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #F6EFE1;
+  --ink: #2B2320;
+  --primary: #A8434B;
+  --accent: #E3A857;
+  --secondary: #6B7F5E;
+  --card: #FFFBF3;
+  --shadow: 0 18px 45px rgba(43, 35, 32, 0.12);
+}
+
+.dark {
+  --paper: #1E1815;
+  --ink: #F0E6D6;
+  --primary: #D97C84;
+  --accent: #E3A857;
+  --secondary: #8FA37E;
+  --card: #2A231F;
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+}
+
+html, body, #root { min-height: 100%; }
+body { background: var(--paper); color: var(--ink); font-family: 'Nunito Sans', sans-serif; }
+button, input, textarea, select { font-family: 'Nunito Sans', sans-serif; }
+h1, h2, h3, h4 { font-family: 'Fraunces', serif; letter-spacing: -0.02em; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, a:focus-visible { outline: 3px solid rgba(168, 67, 75, 0.35); outline-offset: 3px; }
+.cozy-shell { background: var(--paper); color: var(--ink); }
+.cozy-card { background: var(--card); border: 1px solid color-mix(in srgb, var(--secondary) 24%, transparent); border-radius: 22px; box-shadow: var(--shadow); }
+.cozy-pill { border-radius: 999px; }
+.cozy-blob { position: absolute; width: 310px; height: 220px; right: -50px; top: -45px; background: color-mix(in srgb, var(--accent) 24%, transparent); border-radius: 48% 52% 62% 38% / 55% 42% 58% 45%; transform: rotate(-12deg); }
+.cozy-seam { border-bottom: 3px dotted color-mix(in srgb, var(--secondary) 35%, transparent); }
+.ribbon { position: relative; height: 15px; border-radius: 999px; background: color-mix(in srgb, var(--secondary) 17%, var(--card)); }
+.ribbon-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--primary)); transform-origin: left; animation: ribbon-fill 850ms ease-out both; }
+.ribbon-marker { position: absolute; top: 50%; width: 27px; height: 27px; border: 3px solid var(--card); border-radius: 50%; background: var(--accent); box-shadow: 0 3px 10px rgba(43, 35, 32, 0.2); transform: translate(-50%, -50%); }
+.cozy-rise { animation: cozy-rise 450ms ease-out both; }
+.cozy-hover { transition: transform 180ms ease, box-shadow 180ms ease; }
+.cozy-hover:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 22px 48px rgba(43, 35, 32, 0.17); }
+.text-white { color: var(--card) !important; }
+.bg-white { background-color: var(--card) !important; }
+.bg-black { background-color: var(--ink) !important; }
+.text-black { color: var(--ink) !important; }
+@keyframes ribbon-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes cozy-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
+
+.linear-gradient {
+  background: linear-gradient(
+    179.14deg,
+    rgba(43, 35, 32, 0) -7.14%,
+    var(--ink) 87.01%
+  );
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.8);
+}
+
+/* Success Modal Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-progress {
+  animation: progress 3s linear;
+}
